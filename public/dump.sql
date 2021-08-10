@@ -20,13 +20,15 @@ CREATE TABLE `cards` (
   `order` int(10) unsigned NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  PRIMARY KEY (`id`),
+  KEY `cards_column_id_foreign` (`column_id`),
+  CONSTRAINT `cards_column_id_foreign` FOREIGN KEY (`column_id`) REFERENCES `columns` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 LOCK TABLES `cards` WRITE;
 /*!40000 ALTER TABLE `cards` DISABLE KEYS */;
-INSERT INTO `cards` VALUES (1,1,'Column 1 Car','test desc',1,'2021-08-10 04:32:57','2021-08-10 10:18:02'),(2,2,'Card 2','Description card 2',2,'2021-08-10 04:33:17','2021-08-10 10:05:06'),(3,2,'Testing done','Testing webapp done',1,'2021-08-10 04:35:36','2021-08-10 10:05:06'),(4,2,'Staging done',NULL,3,'2021-08-10 04:36:42','2021-08-10 10:05:06'),(5,1,'Covid First Vac done','vac deswc',2,'2021-08-10 04:36:55','2021-08-10 10:18:12'),(6,3,'Second Vacc',NULL,3,'2021-08-10 04:52:17','2021-08-10 10:05:04'),(7,3,'Reload rule for Covid Screening',NULL,2,'2021-08-10 05:39:17','2021-08-10 10:05:04'),(8,3,'Test 2',NULL,4,'2021-08-10 05:39:27','2021-08-10 10:05:04'),(9,1,'Col 1 test 1',NULL,3,'2021-08-10 09:27:16','2021-08-10 10:05:01'),(10,3,'Covid Test Negative',NULL,1,'2021-08-10 09:28:26','2021-08-10 10:05:04'),(11,4,'col4 test1',NULL,1,'2021-08-10 09:28:48','2021-08-10 10:05:06');
+INSERT INTO `cards` VALUES (4,3,'Test Col',NULL,2,'2021-08-10 11:29:58','2021-08-10 12:10:45'),(5,3,'Web app live',NULL,1,'2021-08-10 11:51:09','2021-08-10 12:10:45');
 /*!40000 ALTER TABLE `cards` ENABLE KEYS */;
 UNLOCK TABLES;
 DROP TABLE IF EXISTS `columns`;
@@ -38,12 +40,12 @@ CREATE TABLE `columns` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 LOCK TABLES `columns` WRITE;
 /*!40000 ALTER TABLE `columns` DISABLE KEYS */;
-INSERT INTO `columns` VALUES (1,'Test Col','2021-08-10 03:34:47','2021-08-10 03:34:47'),(2,'Web app live','2021-08-10 03:35:54','2021-08-10 03:35:54'),(3,'Reload rule for Covid Screening','2021-08-10 03:38:58','2021-08-10 03:38:58'),(4,'Column 4','2021-08-10 09:28:41','2021-08-10 09:28:41');
+INSERT INTO `columns` VALUES (3,'Web app live','2021-08-10 11:29:43','2021-08-10 11:29:43');
 /*!40000 ALTER TABLE `columns` ENABLE KEYS */;
 UNLOCK TABLES;
 DROP TABLE IF EXISTS `failed_jobs`;
