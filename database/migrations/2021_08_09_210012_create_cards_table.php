@@ -16,6 +16,7 @@ class CreateCardsTable extends Migration
         Schema::create('cards', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('column_id');
+            $table->foreign('column_id')->references('id')->on('columns')->onDelete('cascade');
             $table->string('title');
             $table->text('description')->nullable();
             $table->unsignedInteger('order');

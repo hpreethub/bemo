@@ -20,3 +20,5 @@ Route::patch('/card/update',[App\Http\Controllers\dashboardController::class,'ca
 Route::put('/card/sort',[App\Http\Controllers\dashboardController::class,'cardSort'])->name('card.sort');
 Route::put('/card/move/{id}',[App\Http\Controllers\dashboardController::class,'cardMove'])->name('card.move');
 Route::get('/db_dump',[App\Http\Controllers\dashboardController::class,'databaseDump'])->name('db.dump');
+Route::get('/delete/{id}',[App\Http\Controllers\dashboardController::class,'deleteColumn'])->name('delete.column');
+

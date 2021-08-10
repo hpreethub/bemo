@@ -23,6 +23,7 @@
                                 {{$col->title}}
                             </span>
                     <span data-toggle="modal" data-target="#addCard" @click="e=>addCard(e,{{$col->id}})"><i class="fas fa-2x fa-plus-circle" ></i></span>
+                    <a href="{{route('delete.column',$col->id)}}" onclick="return confirm('Are you sure to delete?')"><i class="fas fa-2x fa-minus-circle text-warning" ></i></a>
 
                 </div>
 

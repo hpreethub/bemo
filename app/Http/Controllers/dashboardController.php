@@ -100,4 +100,12 @@ class dashboardController extends Controller
         return Response::download($filepath);
 
     }
+
+    public function deleteColumn($id)
+    {
+        $col = column::find($id);
+        $col->delete();
+        return back();
+
+    }
 }
